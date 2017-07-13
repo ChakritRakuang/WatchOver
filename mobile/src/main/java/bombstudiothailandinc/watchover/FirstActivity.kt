@@ -113,9 +113,7 @@ class FirstActivity : AppCompatActivity() {
             } catch (e : Exception) {
                 e.printStackTrace()
             }
-
         }   // onPost
-
     }   // Connected Class
 
     private fun myNotification() {
@@ -130,7 +128,6 @@ class FirstActivity : AppCompatActivity() {
         builder.setContentText("เข้าในพื้นที่แล้ว")
         builder.setAutoCancel(false)
 
-
         val soundUri = RingtoneManager.getDefaultUri(Notification.DEFAULT_SOUND)
         builder.setSound(soundUri)
 
@@ -140,11 +137,7 @@ class FirstActivity : AppCompatActivity() {
 
     }   // myNotification
 
-
     private fun loopCheckUser() {
-
-        //        ConnectedLocalUser connectedLocalUser = new ConnectedLocalUser();
-        //        connectedLocalUser.execute();
 
         try {
 
@@ -178,11 +171,9 @@ class FirstActivity : AppCompatActivity() {
 
             }   // for
 
-
         } catch (e : Exception) {
             e.printStackTrace()
         }
-
 
         //Delay
         val handler = Handler()
@@ -219,7 +210,6 @@ class FirstActivity : AppCompatActivity() {
                 e.printStackTrace()
                 return null
             }
-
         }   // doInBack
 
         override fun onPostExecute(s : String) {
@@ -232,15 +222,15 @@ class FirstActivity : AppCompatActivity() {
                 val jsonArray = JSONArray(s)
 
                 val nameStrings = arrayOfNulls<String>(jsonArray.length())
-                latStrings = arrayOfNulls(jsonArray.length())
-                lngStrings = arrayOfNulls(jsonArray.length())
+                //latStrings = arrayOfNulls(jsonArray.length())
+                //lngStrings = arrayOfNulls(jsonArray.length())
 
-                for (i in 0 .. jsonArray.length() - 1) {
+                for (i in 0 until jsonArray.length()) {
 
                     val jsonObject = jsonArray.getJSONObject(i)
                     nameStrings[i] = jsonObject.getString("Name")
-                    latStrings[i] = jsonObject.getString("Lat")
-                    lngStrings[i] = jsonObject.getString("Lng")
+                    //latStrings[i] = jsonObject.getString("Lat")
+                    //lngStrings[i] = jsonObject.getString("Lng")
 
                     Log.d("21April" , "Name ==> " + i + " == " + nameStrings[i])
 
@@ -248,11 +238,10 @@ class FirstActivity : AppCompatActivity() {
 
                 Log.d("21April" , "Name length ==> " + nameStrings.size)
 
-
                 val plateAdapter = PlateAdapter(this@FirstActivity , nameStrings)
                 listView !!.adapter = plateAdapter
 
-                listView !!.onItemClickListener = AdapterView.OnItemClickListener { adapterView , view , i , l ->
+                listView !!.onItemClickListener = AdapterView.OnItemClickListener { _ , _ , i , _ ->
                     val intent = Intent(this@FirstActivity , PlateMapsActivity::class.java)
 
                     intent.putExtra("Name" , nameStrings[i])
@@ -262,13 +251,10 @@ class FirstActivity : AppCompatActivity() {
                     startActivity(intent)
                 }   // onItem
 
-
             } catch (e : Exception) {
                 e.printStackTrace()
             }
-
         }   // onPost
-
     }   // MySynJSON class
 
     fun clickAddPlate() {
