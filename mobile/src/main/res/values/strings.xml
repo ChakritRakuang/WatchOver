@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Watch Over</string>
+    <string name="title_activity_plate_maps">Map</string>
+    <string name="title_activity_detail_history">Map</string>
+    <string name="title_activity_my_service">Map</string>
+    <string name="add_children">Add Children</string>
+</resources>

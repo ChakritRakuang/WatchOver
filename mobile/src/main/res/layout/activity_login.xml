@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/firstbluebg1000"
+
+    tools:context="mean.chan.mind.sendgps.LoginActivity">
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/linLayout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/txtLogin"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:background="#bbdefb"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:text="LOGIN"-->
+            <!--android:textColor="#ffffff"-->
+            <!--android:textSize="30sp"-->
+            <!--android:textStyle="bold" />-->
+    <!--</LinearLayout>-->
+
+    <LinearLayout
+
+        android:id="@+id/linTopLogin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="6"
+
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="300dp"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/linTopUser"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="@drawable/box"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_name" />
+
+            <EditText
+                android:id="@+id/edtUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Username" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/linTopUser"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/box"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_pass" />
+
+            <EditText
+                android:id="@+id/edtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="Password" />
+
+
+        </LinearLayout>
+
+
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="10dp"
+                android:background="#29434e"
+                android:text="Continue"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:textStyle="bold"
+
+                />
+
+            <TextView
+                android:id="@+id/txtForgot"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:text="Forgotten your password?"
+                android:textColor="#cf0505"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/txtCreateAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:clickable="true"
+                android:text="Create Account"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </RelativeLayout>
