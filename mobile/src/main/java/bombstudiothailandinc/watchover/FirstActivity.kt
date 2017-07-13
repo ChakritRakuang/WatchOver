@@ -71,7 +71,7 @@ class FirstActivity : AppCompatActivity() {
 
                 val okHttpClient = OkHttpClient()
                 val builder = Request.Builder()
-                val request = builder.url("http://swiftcodingthai.com/watch/php_get_last.php").build()
+                val request = builder.url("").build()
                 val response = okHttpClient.newCall(request).execute()
                 return response.body().string()
 

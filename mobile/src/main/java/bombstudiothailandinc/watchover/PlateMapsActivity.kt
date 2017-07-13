@@ -45,10 +45,9 @@ class PlateMapsActivity : FragmentActivity() , OnMapReadyCallback {
         finish()
     }
 
-    fun clickHistory(view : View) {
+    fun clickHistory() {
         //Start Activity
         startActivity(Intent(this@PlateMapsActivity , HistoryListView::class.java))
-
 
     }
 
