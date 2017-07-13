@@ -1,5 +1,6 @@
 package bombstudiothailandinc.watchover
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.location.Criteria
 import android.location.Location
@@ -15,19 +16,17 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 
-import com.squareup.okhttp.Call
 import com.squareup.okhttp.Callback
 import com.squareup.okhttp.FormEncodingBuilder
 import com.squareup.okhttp.OkHttpClient
 import com.squareup.okhttp.Request
-import com.squareup.okhttp.RequestBody
 import com.squareup.okhttp.Response
 
 import java.io.IOException
-import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.Date
 
+@Suppress("NAME_SHADOWING")
 class MainActivity : AppCompatActivity() {
 
     //Explicit
@@ -56,7 +55,7 @@ class MainActivity : AppCompatActivity() {
 
     } //Main method
 
-    fun clickSaveData(view : View) {
+    fun clickSaveData() {
 
         val strName = plateEditText !!.text.toString().trim { it <= ' ' }
 
@@ -96,10 +95,10 @@ class MainActivity : AppCompatActivity() {
 
     }//Update Value
 
+    @SuppressLint("SimpleDateFormat")
     private fun autoUpdate() {
 
         timeAnInt += 1
-
 
         //Chang Policy
         val threadPolicy = StrictMode.ThreadPolicy.Builder().permitAll().build()
@@ -161,11 +160,11 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    @SuppressLint("MissingPermission")
     fun requestLocation(strProvider : String , strError : String) : Location? {
 
         var location : Location? = null
         if (locationManager !!.isProviderEnabled(strProvider)) {
-
 
             locationManager !!.requestLocationUpdates(strProvider , 1000 , 10f , locationListener)
             location = locationManager !!.getLastKnownLocation(strProvider)
@@ -197,7 +196,6 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
-
 
     private fun setupLocation() {
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager

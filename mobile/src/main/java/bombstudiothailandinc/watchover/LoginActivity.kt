@@ -128,7 +128,5 @@ class LoginActivity : AppCompatActivity() , View.OnClickListener {
         } catch (e : Exception) {
             Log.d("4JuneV1" , "e check ==> " + e.toString())
         }
-
     }
-
 }   // Main Class

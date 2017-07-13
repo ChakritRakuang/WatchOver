@@ -1,21 +1,20 @@
 package bombstudiothailandinc.watchover
 
+import android.annotation.SuppressLint
 import android.os.AsyncTask
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
 
 import com.squareup.okhttp.OkHttpClient
 import com.squareup.okhttp.Request
-import com.squareup.okhttp.Response
 
 import org.json.JSONArray
-import org.json.JSONObject
 
 import java.util.ArrayList
-import java.util.Objects
 
 class HistoryListView : AppCompatActivity() {
 
@@ -24,11 +23,12 @@ class HistoryListView : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_history_list_view)
 
-        listView = findViewById<View>(R.id.listView2)
+        listView = findViewById<View>(R.id.listView2) as ListView?
         val connectedHistory = ConnectedHistory()
         connectedHistory.execute()
     } //Main Method
 
+    @SuppressLint("StaticFieldLeak")
     inner class ConnectedHistory : AsyncTask<Void , Void , String>() {
 
         override fun doInBackground(vararg params : Void) : String? {
@@ -59,24 +59,21 @@ class HistoryListView : AppCompatActivity() {
 
                 val stringArrayList = ArrayList<String>()
 
-                for (i in 0 .. jsonArray.length() - 1) {
+                for (i in 0 until jsonArray.length()) {
                     val jsonObject = jsonArray.getJSONObject(i)
                     allTimeStrings[i] = jsonObject.getString("Date")
-                    val resultStrings = allTimeStrings[i].split("".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+                    val resultStrings = allTimeStrings[i] !!.split("".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
                     allDateStrings[i] = resultStrings[0]
-                    stringArrayList.add(allDateStrings[i])
+                    allDateStrings[i]?.let { stringArrayList.add(it) }
 
                     Log.d("24April" , "Date(" + i + ") =" + allDateStrings[i])
 
-                } //for
+                }
 
-                val objects = stringArrayList.toTypedArray() as Array<Objects>
-                for (objects1 in objects) {
-                    if (stringArrayList.indexOf(objects1) != stringArrayList.lastIndexOf(objects1)) {
-                        stringArrayList.removeAt(stringArrayList.lastIndexOf(objects1))
-
-                    }//if
-                }// for
+                val objects = stringArrayList.toTypedArray() as Array<*>
+                objects
+                        .filter { stringArrayList.indexOf(it) != stringArrayList.lastIndexOf(it) }
+                        .forEach { stringArrayList.removeAt(stringArrayList.lastIndexOf(it)) }//if
 
                 val stringArrayAdapter = ArrayAdapter(this@HistoryListView ,
                         android.R.layout.simple_list_item_1 , stringArrayList)

@@ -9,7 +9,7 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 
 class PlateAdapter(//Explicit
-        private val context : Context , private val titleStrings : Array<String>)//Constructor
+        private val context : Context , private val titleStrings : Array<String?>)//Constructor
     : BaseAdapter() {
 
     override fun getCount() : Int {

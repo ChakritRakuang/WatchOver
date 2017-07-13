@@ -34,7 +34,6 @@ class MyServiceActivity : FragmentActivity() , OnMapReadyCallback {
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         addMapFragment()
 
-
         //Back
         backController()
 
@@ -43,7 +42,6 @@ class MyServiceActivity : FragmentActivity() , OnMapReadyCallback {
 
         //List
         listController()
-
 
     } //Main Method
 
@@ -69,7 +67,6 @@ class MyServiceActivity : FragmentActivity() , OnMapReadyCallback {
         val imageView = findViewById<View>(R.id.imvBack) as ImageView
         imageView.setOnClickListener { finish() }
 
-
     }
 
     private fun getValueFromInten() {
@@ -83,7 +80,7 @@ class MyServiceActivity : FragmentActivity() , OnMapReadyCallback {
         mapFragment.getMapAsync(this)
     }
 
-    fun onMapReady(googleMap : GoogleMap) {
+    override fun onMapReady(googleMap : GoogleMap) {
         mMap = googleMap
         val tag = "13JulyV1"
 
@@ -107,7 +104,7 @@ class MyServiceActivity : FragmentActivity() , OnMapReadyCallback {
 
             val latLng = LatLng(java.lang.Double.parseDouble(strLat) , java.lang.Double.parseDouble(strLng))
 
-            mMap !!.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng , 15))
+            mMap !!.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng , 15F))
 
             val markerOptions = MarkerOptions()
             markerOptions.position(latLng)
@@ -117,7 +114,5 @@ class MyServiceActivity : FragmentActivity() , OnMapReadyCallback {
         } catch (e : Exception) {
             Log.d(tag , "e ==> " + e.toString())
         }
-
     } //omMapReady
-
 } //Main Class

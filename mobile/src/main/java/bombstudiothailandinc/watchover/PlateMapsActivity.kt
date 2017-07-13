@@ -52,14 +52,14 @@ class PlateMapsActivity : FragmentActivity() , OnMapReadyCallback {
 
     }
 
-    fun onMapReady(googleMap : GoogleMap) {
+    override fun onMapReady(googleMap : GoogleMap) {
         mMap = googleMap
 
         //Create LatLng
         val douLat = java.lang.Double.parseDouble(latString)
         val douLng = java.lang.Double.parseDouble(lngString)
         val latLng = LatLng(douLat , douLng)
-        mMap !!.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng , 16))
+        mMap !!.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng , 16F))
         mMap !!.addMarker(MarkerOptions()
                 .position(latLng)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.build2))

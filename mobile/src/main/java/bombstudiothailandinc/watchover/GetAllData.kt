@@ -4,10 +4,8 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.os.AsyncTask
 import android.util.Log
-
 import com.squareup.okhttp.OkHttpClient
 import com.squareup.okhttp.Request
-import com.squareup.okhttp.Response
 
 class GetAllData(@SuppressLint("StaticFieldLeak") private val context : Context) : AsyncTask<String , Void , String>() {
 

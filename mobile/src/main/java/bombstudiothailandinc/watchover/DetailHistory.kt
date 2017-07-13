@@ -17,17 +17,17 @@ class DetailHistory : FragmentActivity() , OnMapReadyCallback {
     override fun onCreate(savedInstanceState : Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_history)
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
 
-    fun onMapReady(googleMap : GoogleMap) {
+    override fun onMapReady(googleMap : GoogleMap) {
         mMap = googleMap
 
         // Add a marker in Sydney and move the camera
-        val sydney = LatLng(- 34 , 151)
+        val sydney = LatLng((- 34).toDouble() , 151.0)
         mMap !!.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         mMap !!.moveCamera(CameraUpdateFactory.newLatLng(sydney))
     }

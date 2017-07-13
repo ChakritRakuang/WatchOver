@@ -3,9 +3,9 @@ package bombstudiothailandinc.watchover
 import android.annotation.SuppressLint
 import android.app.Notification
 import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
 import android.media.RingtoneManager
-import android.net.Uri
 import android.os.AsyncTask
 import android.os.Bundle
 import android.os.Handler
@@ -19,10 +19,8 @@ import android.widget.Toast
 
 import com.squareup.okhttp.OkHttpClient
 import com.squareup.okhttp.Request
-import com.squareup.okhttp.Response
 
 import org.json.JSONArray
-import org.json.JSONObject
 
 class FirstActivity : AppCompatActivity() {
 
@@ -30,7 +28,6 @@ class FirstActivity : AppCompatActivity() {
     private var listView : ListView? = null
     private var latStrings : Array<String>? = null
     private var lngStrings : Array<String>? = null
-
 
     override fun onCreate(savedInstanceState : Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,15 +43,13 @@ class FirstActivity : AppCompatActivity() {
 
     }   // Main Method
 
-
     //นี่คือ เมทอด ที่หาระยะ ระหว่างจุด
     private fun distance(lat1 : Double , lon1 : Double , lat2 : Double , lon2 : Double) : Double {
         val theta = lon1 - lon2
         var dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta))
         dist = Math.acos(dist)
         dist = rad2deg(dist)
-        dist = dist * 60.0 * 1.1515 * 1.609344
-
+        dist *= 60.0 * 1.1515 * 1.609344
 
         return dist
     }
@@ -67,6 +62,7 @@ class FirstActivity : AppCompatActivity() {
         return rad * 180 / Math.PI
     }
 
+    @SuppressLint("StaticFieldLeak")
     inner class ConnectedLocalUser : AsyncTask<Void , Void , String>() {
 
         override fun doInBackground(vararg voids : Void) : String? {
@@ -112,9 +108,7 @@ class FirstActivity : AppCompatActivity() {
                     if (currentDistance < 0.3) {
                         myNotification() //สามารถเปลี่ยนแปลงได้ถ้าอยากให้ออกตอนร้อง
                     }
-
                 }   // for
-
 
             } catch (e : Exception) {
                 e.printStackTrace()
@@ -277,7 +271,7 @@ class FirstActivity : AppCompatActivity() {
 
     }   // MySynJSON class
 
-    fun clickAddPlate(view : View) {
+    fun clickAddPlate() {
         startActivity(Intent(this@FirstActivity , MainActivity::class.java))
     }
 

@@ -4,12 +4,9 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.os.AsyncTask
 import android.util.Log
-
 import com.squareup.okhttp.FormEncodingBuilder
 import com.squareup.okhttp.OkHttpClient
 import com.squareup.okhttp.Request
-import com.squareup.okhttp.RequestBody
-import com.squareup.okhttp.Response
 
 class PostValueToParent(@SuppressLint("StaticFieldLeak") private val context : Context ,
                         private val nameString : String ,

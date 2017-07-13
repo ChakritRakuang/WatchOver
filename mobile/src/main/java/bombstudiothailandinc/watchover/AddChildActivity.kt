@@ -37,7 +37,6 @@ class AddChildActivity : AppCompatActivity() {
         //Get Value from Intent
         getValueFromIntent()
 
-
         //Initial view
         initialView()
 
@@ -64,7 +63,6 @@ class AddChildActivity : AppCompatActivity() {
                 R.id.radFemale -> genderString = "Female"
             }
         }
-
     }
 
     private fun getValueFromIntent() {
@@ -101,7 +99,6 @@ class AddChildActivity : AppCompatActivity() {
     }
 
     private fun uploadValueToServer() {
-
 
         val tag = "12JulyV1"
         Log.d(tag , "Code ==>" + codeString !!)
@@ -144,9 +141,7 @@ class AddChildActivity : AppCompatActivity() {
             } catch (e : Exception) {
                 e.printStackTrace()
             }
-
         }
-
     } //onActivity
 
     private fun cameraController() {
