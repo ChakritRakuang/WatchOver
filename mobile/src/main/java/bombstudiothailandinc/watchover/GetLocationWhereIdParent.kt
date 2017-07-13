@@ -33,6 +33,6 @@ class GetLocationWhereIdParent(@SuppressLint("StaticFieldLeak") private val cont
     }
 
     companion object {
-        private val urlPHP = "http://androidthai.in.th/dom/getChildWhereIdParentAndLat.php"
+        private val urlPHP = ""
     }
 }   // Main Class

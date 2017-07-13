@@ -23,6 +23,5 @@ class GetAllData(@SuppressLint("StaticFieldLeak") private val context : Context)
             Log.d("4JuneV1" , "e doIn ==> " + e.toString())
             return null
         }
-
     }
 }   // Main Class

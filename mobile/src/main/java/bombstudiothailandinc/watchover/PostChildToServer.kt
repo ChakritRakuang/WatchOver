@@ -37,6 +37,6 @@ class PostChildToServer(@SuppressLint("StaticFieldLeak") private val context : C
     }
 
     companion object {
-        private val urlPHP = "http://androidthai.in.th/dom/addDataChan.php"
+        private val urlPHP = ""
     }
 }

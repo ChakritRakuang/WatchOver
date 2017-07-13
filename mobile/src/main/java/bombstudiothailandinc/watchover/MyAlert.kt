@@ -13,12 +13,11 @@ class MyAlert(//ประกาศตัวแปร
         builder.setIcon(INT)
         builder.setTitle(strTitle)
         builder.setMessage(strMessage)
-        builder.setPositiveButton("OK") { dialog , which -> dialog.dismiss() }
+        builder.setPositiveButton("OK") { dialog , _ -> dialog.dismiss() }
         builder.show()
     }
 
     companion object {
         private val INT = R.mipmap.name
     }
-
 }//Main Class

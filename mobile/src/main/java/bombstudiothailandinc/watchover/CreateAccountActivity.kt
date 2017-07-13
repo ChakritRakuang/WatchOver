@@ -51,7 +51,7 @@ class CreateAccountActivity : AppCompatActivity() , View.OnClickListener {
     }
 
     private fun radioController() {
-        radioGroup !!.setOnCheckedChangeListener { group , checkedId ->
+        radioGroup !!.setOnCheckedChangeListener { _ , checkedId ->
             when (checkedId) {
                 R.id.radMale -> anInt = 0
                 R.id.radFemale -> anInt = 1
@@ -62,7 +62,6 @@ class CreateAccountActivity : AppCompatActivity() , View.OnClickListener {
     private fun buttonController() {
 
         button !!.setOnClickListener(this@CreateAccountActivity)
-
     }
 
     private fun initialView() {

@@ -37,6 +37,6 @@ class PostValueToParent(@SuppressLint("StaticFieldLeak") private val context : C
     }
 
     companion object {
-        private val urlPHP = "http://androidthai.in.th/dom/addParentMind.php"
+        private val urlPHP = ""
     }
 }//Main class

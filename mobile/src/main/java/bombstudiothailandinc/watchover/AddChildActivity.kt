@@ -29,7 +29,6 @@ class AddChildActivity : AppCompatActivity() {
     private var genderString = "Male"
     private var loginStrings : Array<String>? = null
 
-
     override fun onCreate(savedInstanceState : Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_child)
@@ -51,7 +50,6 @@ class AddChildActivity : AppCompatActivity() {
 
         //Save controller
         saveController()
-
 
     }  //Main Method
 
@@ -80,6 +78,7 @@ class AddChildActivity : AppCompatActivity() {
     private fun saveController() {
         val imageView = findViewById<View>(R.id.imvSave) as ImageView
         imageView.setOnClickListener {
+
             //get value from edit text
             codeString = codeEditText !!.text.toString().trim { it <= ' ' }
             nameString = nameEditText !!.text.toString().trim { it <= ' ' }

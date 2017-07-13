@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
                 .add("Lng" , strLng)
                 .build()
         val builder = Request.Builder()
-        val request = builder.url("http://androidthai.in.th/dom/addPlate.php").post(requestBody).build()
+        val request = builder.url("").post(requestBody).build()
         val call = okHttpClient.newCall(request)
         call.enqueue(object : Callback {
             override fun onFailure(request : Request , e : IOException) {
@@ -123,8 +123,8 @@ class MainActivity : AppCompatActivity() {
 
         locationManager !!.removeUpdates(locationListener)
 
-        var strLat = "Unknow"
-        var strLng = "Unknow"
+        var strLat = "Unknown"
+        var strLng = "Unknown"
         val networkLocation = requestLocation(LocationManager.NETWORK_PROVIDER , "No Internet")
         if (networkLocation != null) {
             strLat = String.format("%.7f" , networkLocation.latitude)
@@ -161,7 +161,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     @SuppressLint("MissingPermission")
-    fun requestLocation(strProvider : String , strError : String) : Location? {
+    private fun requestLocation(strProvider : String , strError : String) : Location? {
 
         var location : Location? = null
         if (locationManager !!.isProviderEnabled(strProvider)) {
@@ -173,12 +173,10 @@ class MainActivity : AppCompatActivity() {
             Log.d("GPS" , strError)
         }
 
-
         return location
     }
 
-
-    val locationListener : LocationListener = object : LocationListener {
+    private val locationListener : LocationListener = object : LocationListener {
         override fun onLocationChanged(location : Location) {
             latTextView !!.text = String.format("%.7f" , location.latitude)
             lngTextView !!.text = String.format("%.7f" , location.longitude)

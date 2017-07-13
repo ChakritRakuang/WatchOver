@@ -37,7 +37,6 @@ class PlateAdapter(//Explicit
         val titleTextView = view1.findViewById<View>(R.id.textView9) as TextView
         titleTextView.text = titleStrings[i]
 
-
         return view1
     }
 }// main class
