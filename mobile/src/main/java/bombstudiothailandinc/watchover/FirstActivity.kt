@@ -202,7 +202,7 @@ class FirstActivity : AppCompatActivity() {
 
                 val okHttpClient = OkHttpClient()
                 val builder = Request.Builder()
-                val request = builder.url("http://androidthai.in.th/dom/getPlate.php").build()
+                val request = builder.url("").build()
                 val response = okHttpClient.newCall(request).execute()
                 return response.body().string()
 
